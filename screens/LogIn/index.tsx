@@ -66,7 +66,7 @@ function Main({ navigation }: MainProps) {
         </Text>
         <Btn 
           nameBtn="Log In"
-          doSomething={() => console.log(user)}
+          doSomething={() => navigation.navigate("Weather")}
         />
       </View>
     </View>
