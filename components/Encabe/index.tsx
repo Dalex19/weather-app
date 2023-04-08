@@ -11,7 +11,6 @@ function Main() {
       />
       <View style={styles.next}>
         <Text style={styles.title}> SKIP</Text>
-
         <Ionicons name="ios-arrow-forward" size={20} />
       </View>
     </View>
