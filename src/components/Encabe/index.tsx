@@ -6,7 +6,7 @@ function Main() {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../../assets/logo.png")}
+        source={require("../../../assets/logo.png")}
         style={styles.logoStyle}
       />
       <View style={styles.next}>

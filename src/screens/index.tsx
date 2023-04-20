@@ -14,15 +14,15 @@ function RootApp({ navigation }: Prop) {
 
   const data = [
     {
-      image: require("../assets/bg.jpg"),
+      image: require("../../assets/bg.jpg"),
       title: "Supplements",
     },
     {
-      image: require("../assets/bg1.jpg"),
+      image: require("../../assets/bg1.jpg"),
       title: "Health",
     },
     {
-      image: require("../assets/bg2.jpg"),
+      image: require("../../assets/bg2.jpg"),
       title: "Training",
     },
   ];

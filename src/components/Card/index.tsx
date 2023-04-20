@@ -18,7 +18,7 @@ function Main({ cityName, dateNow, temperature }: Props) {
     return (
       <View style={[styles.container, {backgroundColor: color}]}>
         <ImageBackground
-          source={require("../../assets/town.png")}
+          source={require("../../../assets/town.png")}
           style={styles.backgroundImage}
         >
           <CityInfo cityName={cityName} dateNow={dateNow}/>

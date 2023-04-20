@@ -15,12 +15,12 @@ export function getWeatherType (temperature: number): WeatherType {
 export function getWeatherImage(type: WeatherType): { name: string; source: any; color: string } {
     switch (type) {
       case "sunny":
-        return { name: "sunny", source: require("../assets/soleado.png"), color: "#DBFCFF" };
+        return { name: "sunny", source: require("../../assets/soleado.png"), color: "#DBFCFF" };
       case "cloudy":
-        return { name: "cloudy", source: require("../assets/nublado.png"), color: "#D7D6D6" };
+        return { name: "cloudy", source: require("../../assets/nublado.png"), color: "#D7D6D6" };
       case "rainy":
-        return { name: "rainy", source: require("../assets/lluvia.png"), color: "#A9DEF9" };
+        return { name: "rainy", source: require("../../assets/lluvia.png"), color: "#A9DEF9" };
       case "windy":
-        return { name: "windy", source: require("../assets/viento.png"), color: "#CFDEE7" };
+        return { name: "windy", source: require("../../assets/viento.png"), color: "#CFDEE7" };
     }
 }

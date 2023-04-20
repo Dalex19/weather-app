@@ -34,14 +34,3 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
 });
-
-{/* <TextInput 
-            placeholder="Password"
-            placeholderTextColor="gray"
-            style={styles.input}
-          />
-          <TextInput 
-          placeholder="Enter username"
-          placeholderTextColor="gray"
-          style={styles.input}
-        /> */}

@@ -1,5 +1,9 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useEffect } from "react";
+import { View, StyleSheet } from "react-native";
+
+import { getWeather, names } from "../../services";
+import { useDispatch } from "react-redux";
+import { addCity } from "../../redux/citiesSlice";
 
 import Encabe from "../../components/Encabe";
 import MyBtn from "../../components/MyBtn";
@@ -9,6 +13,24 @@ type Prop = {
 };
 
 function Main({ navigation }: Prop) {
+  const dispatch = useDispatch();
+  
+async function addCities() {
+  for (let i = 0; i < names.length; i++) {
+    try {
+      const result = await getWeather(names[i]);
+      dispatch(addCity(result));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+
+  useEffect(() => {
+    addCities();
+  }, []);
+
   return (
     <View style={styles.container}>
       <Encabe />

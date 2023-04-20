@@ -1,15 +1,15 @@
 import React from "react"
 
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
+import { store } from "./src/redux/store";
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import RootApp from "./screens";
-import LogIn from "./screens/LogIn";
-import SignUp from "./screens/SignUp"
-import Weather from "./screens/Weather";
+import RootApp from "./src/screens";
+import LogIn from "./src/screens/LogIn";
+import SignUp from "./src/screens/LogIn";
+import Weather from "./src/screens/Weather";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -34,7 +34,10 @@ export default function App() {
           />
           <Stack.Screen
             name="Weather"
-            options={{ headerShown: false }}
+            options={{
+              headerShown: false,
+              //headerSearchBarOptions: headerSearchBarOptions,
+            }}
             component={Weather}
           />
         </Stack.Navigator>

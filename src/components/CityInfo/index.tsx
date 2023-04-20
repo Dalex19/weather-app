@@ -1,16 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native"
 import { Ionicons } from "@expo/vector-icons";
+import { useDate } from "../../utils/useDate";
 
-function Main ({ cityName, dateNow } : { cityName: string; dateNow: string}) {
-    return(
-        <View style={styles.infoContainer}>
-          <Text style={styles.nameCity}>
-            <Ionicons name="pin-outline" size={20} /> {cityName}
-          </Text>
-          <Text>{dateNow}</Text>
-        </View>
-    )
+function Main({ cityName }: { cityName: string }) {
+  const { date } = useDate();
+
+  return (
+    <View style={styles.infoContainer}>
+      <Text style={styles.nameCity}>
+        <Ionicons name="pin-outline" size={20} /> {cityName}
+      </Text>
+      <Text>{date}</Text>
+    </View>
+  );
 }
 
 export default Main;
