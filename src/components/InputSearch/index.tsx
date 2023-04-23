@@ -1,39 +1,53 @@
-import React from "react";
-import { View, TextInput, StyleSheet, FlatList, Text } from "react-native";
+import React,  { useEffect }  from "react";
+import { View, TextInput, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons"
+
+//redux
 import { useCountries } from "../../hooks/useCountries";
+import { useAddCity } from "../../hooks/useAddCity";
 
-import ListItem from "../ListItem";
+import ModalSelector from 'react-native-modal-selector-searchable'
 
-function Main() {
+
+function Main () {
   const {setText, countries} = useCountries();
+  const { dataFiltered, filterData, addNewCity } = useAddCity();
+
+  useEffect(() => {
+    filterData(countries);
+  }, [countries])
+
   return (
-    <View style={{width: "100%", flexDirection: "column", alignItems:"center", position: "relative", zIndex: 50}}>
-      <View style={styles.container}>
-      <TextInput style={styles.input} placeholder="Search your city" onChangeText={setText} />
-      <Ionicons
-        name="search-outline"
-        size={20}
-        style={styles.iconStyle}
-      />
-      </View>
-      {countries && countries.length ? (
-        <FlatList
-          style={{ height: 280, position: "absolute", backgroundColor: "grey", top: 118, width: "80%" }}
-          data={countries}
-          renderItem={({ item }) => <ListItem key={item} name={item}/>}
-          keyExtractor={(item) => item}
-        />
-      ) : null}
+    <View style={style.container}>
+      <ModalSelector
+        search={true}
+        data={dataFiltered}
+        initValue="Select your country"
+        onChange={(option: any) => addNewCity(option.label)}
+        onChangeSearch={setText}
+      >
+        <View style={style.containerInput}>
+          <TextInput
+            style={style.input}
+            placeholder="Search your city"
+            onChangeText={setText}
+          />
+          <Ionicons name="search-outline" size={20} style={style.iconStyle} />
+        </View>
+      </ModalSelector>
     </View>
   );
-};
+}
 
 export default Main;
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
   container: {
-    width: "80%",
+    backgroundColor: "transparent",
+    width: "80%"
+  },
+  containerInput: {
+    width: "100%",
     position: "relative",
   },
   input: {
