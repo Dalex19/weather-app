@@ -3,5 +3,9 @@
   "compilerOptions": {
     "jsx": "react",
     "strict": true
-  }
+  },
+  "exclude": [
+    "react-native-modal-selector-searchable",
+    "react-native-modal-dropdown" 
+  ]
 }
