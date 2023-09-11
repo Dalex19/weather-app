@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import RootApp from "./src/screens";
 import LogIn from "./src/screens/LogIn";
-import SignUp from "./src/screens/LogIn";
+import SignUp from "./src/screens/SignUp";
 import Weather from "./src/screens/Weather";
 
 export default function App() {
@@ -36,7 +36,6 @@ export default function App() {
             name="Weather"
             options={{
               headerShown: false,
-              //headerSearchBarOptions: headerSearchBarOptions,
             }}
             component={Weather}
           />
