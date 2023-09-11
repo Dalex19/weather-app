@@ -6,17 +6,21 @@ import { Ionicons } from "@expo/vector-icons";
 import Btn from "../../components/Btn";
 import Input from "../../components/Input";
 
+type MainProps = {
+  navigation: any;
+}
+
 type User = {
   fullName: string;
-  phoneNumber: number;
+  phoneNumber: string;
   emailAdress: string;
   password: string;
 }
 
-function Main() {
+function Main({ navigation } : MainProps) {
   const [user, setUser] = useState<User>({
     fullName: "",
-    phoneNumber: 0,
+    phoneNumber: "",
     emailAdress: "",
     password: "",
   });
@@ -40,7 +44,7 @@ function Main() {
         />
         <Input 
           placeholder="Phone Number"
-          handleChange={(text: string | number) => handleChange("phoneNumber", text)}
+          handleChange={(text: string ) => handleChange("phoneNumber", text)}
           value={user.phoneNumber.toString()}
         />
         <Input 
@@ -65,14 +69,14 @@ function Main() {
         <Text style={{ color: "gray" }}>
           I'm already a member.
           <Text
-            onPress={() => console.log("hello word")}
+            onPress={() => navigation.navigate("LogIn")}
             style={styles.recoveryPassText}
           >
             {" "}
             Sing In
           </Text>
         </Text>
-        <Btn nameBtn="Sign Up" doSomething={() => console.log(user)}/>
+        <Btn nameBtn="Sign Up" doSomething={() => navigation.navigate("Weather")}/>
       </View>
     </View>
   );
